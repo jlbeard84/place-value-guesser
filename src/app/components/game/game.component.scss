@@ -1,0 +1,8 @@
+div.guess {
+    display:flex;
+    
+    div.guess-value, div.guess-digits, div.guess-places {
+        padding:5px;
+        border:1px solid black;
+    }
+}

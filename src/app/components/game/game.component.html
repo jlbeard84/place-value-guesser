@@ -1,0 +1,16 @@
+<div>
+    <div class="guesses">
+        <div class="guess" *ngFor="let guess of gameState.guesses">
+            <div class="guess-value">{{guess.guessValue}}</div>
+            <div class="guess-digits">{{guess.correctDigits}}</div>
+            <div class="guess-places">{{guess.correctPlaces}}</div>
+        </div>
+    </div>
+
+
+    <div class="guess-input">
+        <input type="text" [(ngModel)]="guessValue"/>
+
+        <button class="button" type="submit" (click)="onGuess()">Guess</button>
+    </div>
+</div>
