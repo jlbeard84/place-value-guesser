@@ -1,6 +1,10 @@
 <div>
     <div class="guesses">
-        <div class="guess" *ngFor="let guess of gameState.guesses">{{guess.guessValue}}</div>
+        <div class="guess" *ngFor="let guess of gameState.guesses">
+            <div class="guess-value">{{guess.guessValue}}</div>
+            <div class="guess-digits">{{guess.correctDigits}}</div>
+            <div class="guess-places">{{guess.correctPlaces}}</div>
+        </div>
     </div>
 
 

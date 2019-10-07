@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GameState, Guess } from 'src/app/models';
+import { GameState } from '../../models';
+import { GameLogicService } from '../../services';
 
 @Component({
     selector: 'app-game',
@@ -10,14 +11,16 @@ export class GameComponent implements OnInit {
     public gameState: GameState;
     public guessValue: string;
 
+    constructor(
+        private gameLogicService: GameLogicService) {
+    }
+
     public ngOnInit(): void {
-        this.gameState = new GameState();
+        this.gameState = this.gameLogicService.initializeGameState(5);
     }
 
     public onGuess(): void {
-        const newGuess = new Guess();
-        newGuess.guessValue = this.guessValue;
-        this.gameState.guesses.unshift(newGuess);
+        this.gameLogicService.addGuess(this.guessValue, this.gameState);
         this.guessValue = '';
     }
 }
