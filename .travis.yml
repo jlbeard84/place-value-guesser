@@ -1,0 +1,25 @@
+dist: trusty
+sudo: false
+
+branches:
+  except:
+    - gh-pages
+
+language: node_js
+node_js:
+  - "10.16.0"
+
+before_script:
+  - npm install -g @angular/cli@8.3.8
+
+script: 
+  - npm run build-prod
+
+deploy:
+  skip_cleanup: true
+  provider: pages
+  github_token: $GITHUB_TOKEN
+  fqdn: placeguesser.jlbeard.com
+  local_dir: dist/place-value-guesser/
+  on:
+    branch: master
